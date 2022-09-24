@@ -37,13 +37,35 @@ function displayLibrary(array) {
     });
 }
 
-const addBookBtn = document.querySelector('#show-form-btn');
+const showFormBtn = document.querySelector('#show-form-btn');
 
 // the Add Book button will make the form appear
-addBookBtn.addEventListener('click', () => {   
+showFormBtn.addEventListener('click', () => {   
     const formSection = document.querySelector('.visible');
     formSection.classList.toggle('visible');
-    addBookBtn.classList.toggle('visible');
+    showFormBtn.classList.toggle('visible');
 });
+
+const addBookBtn = document.querySelector('#add-book');
+const formElm = document.querySelector('#library-form');
+
+addBookBtn.addEventListener('submit', (e) => {
+    e.preventDefault();
+    new FormData(formElm);
+});
+
+formElm.addEventListener('formdata', (e) => {
+    console.log('formdata fired');
+
+    let display = '';
+    const data = e.formData;
+    for (const value of data.values()) {
+        display += value;
+    }
+
+    alert(display);
+});
+
+// the form works, I just need to figure out how to push the data to the array
 
 displayLibrary();
