@@ -19,8 +19,8 @@ function Book(title, author) {
 }
 
 function addBookToLibrary() {
-    let bookTitle = document.querySelector('#book_title');
-    let bookAuthor = document.querySelector('#book_author');
+    let bookTitle = document.querySelector('#book-title');
+    let bookAuthor = document.querySelector('#book-author');
 
     let book = new Book(bookTitle, bookAuthor);
     
@@ -28,7 +28,7 @@ function addBookToLibrary() {
 }
 
 function displayLibrary(array) {
-    const bookDisplay = document.querySelector('#book_display');
+    const bookDisplay = document.querySelector('#book-display');
 
     myLibrary.forEach((book) => {
         const item = document.createElement('p');
@@ -36,5 +36,14 @@ function displayLibrary(array) {
         bookDisplay.appendChild(item);
     });
 }
+
+const addBookBtn = document.querySelector('#show-form-btn');
+
+// the Add Book button will make the form appear
+addBookBtn.addEventListener('click', () => {   
+    const formSection = document.querySelector('.visible');
+    formSection.classList.toggle('visible');
+    addBookBtn.classList.toggle('visible');
+});
 
 displayLibrary();

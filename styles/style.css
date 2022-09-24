@@ -3,3 +3,13 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+.visible {
+    visibility: hidden;
+}
+
+#add-book {
+    width: 50px;
+    background-color: green;
+    color: white;
+}
