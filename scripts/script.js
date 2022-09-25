@@ -18,15 +18,6 @@ function Book(title, author) {
     this.author = author;   
 }
 
-function addBookToLibrary() {
-    let bookTitle = document.querySelector('#book-title');
-    let bookAuthor = document.querySelector('#book-author');
-
-    let book = new Book(bookTitle, bookAuthor);
-    
-    myLibrary.push(book); 
-}
-
 function displayLibrary(array) {
     const bookDisplay = document.querySelector('#book-display');
 
@@ -57,15 +48,29 @@ addBookBtn.addEventListener('submit', (e) => {
 formElm.addEventListener('formdata', (e) => {
     console.log('formdata fired');
 
-    let display = '';
+    let display = [];
     const data = e.formData;
     for (const value of data.values()) {
-        display += value;
+        display.push(value);
     }
 
-    alert(display);
+    console.log("What's put in myLibrary");
+    console.log(display);
+    addBookToLibrary(display);
 });
 
-// the form works, I just need to figure out how to push the data to the array
+function addBookToLibrary(array) {
+    let bookTitle = array[0];
+    let bookAuthor = array[1];
 
+    let book = new Book(bookTitle, bookAuthor);
+    
+    myLibrary.push(book);
+
+    console.log("Showing myLibrary:");
+    console.table(myLibrary);
+}
+
+console.log('What myLibrary looks like at the start');
+console.table(myLibrary);
 displayLibrary();
