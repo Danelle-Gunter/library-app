@@ -2,26 +2,110 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    --theme-color: rgb(0, 63, 0);
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 5px solid var(--theme-color);
+    border-radius: 10px;
+    margin: 20px;
+    padding: 10px;
+}
+
+header {
+    margin: 30px auto;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .visible {
     visibility: hidden;
 }
 
-#add-book {
-    width: 50px;
-    background-color: green;
+#show-form-btn {
+    height: 50px;
+    width: 250px;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 2px 2px #aaa;
+    background-color: var(--theme-color);
     color: white;
+    font-weight: bold;
+}
+
+#show-form-btn:hover,
+#add-book:hover {
+    background-color: green;
+}
+
+#show-form-btn:active,
+#add-book:active {
+    background-color: lightgreen;
+    color: black;
+}
+
+section {
+    margin-bottom: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    justify-content: space-between;
+}
+
+input {
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+#add-book {
+    width: 75px;
+    background-color: var(--theme-color);
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 2px 2px #aaa;
+}
+
+ul {
+    list-style: none;
+}
+
+li {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    justify-items: end;
+    margin: 5px 0;
 }
 
 .del-btn {
-    width: 30px;
-    height: 30px;
-    background-color: red;
+    width: 20px;
+    height: 20px;
+    background-color: rgb(145, 0, 0);
     color: white;
     border-radius: 25px;
     border: none;
     font-weight: bold;
-    font-size: 20px;
-    margin-left: 50px;
+    font-size: 14px;
+    box-shadow: 2px 2px #aaa;
+}
+
+.del-btn:hover {
+    background-color: rgb(255, 0, 0);
+}
+
+.del-btn:active {
+    background-color: rgb(255, 82, 82);
+    color: black;
 }
